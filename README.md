@@ -23,4 +23,6 @@ First, a [Flask](https://flask.palletsprojects.com/en/3.0.x/) server is opened t
 
 To make it a standalone app, a web view (through [pywebview](https://pywebview.flowrl.com)) is opened to visit the address. In contrast to something like Electron, the web view is completely native and thus not included in the final app bundle. This makes the app leaner and less RAM intensive.
 
-Finally, the app is bundled into runnable python using [Nuitka](https://nuitka.net). Nuitka compiles the whole python interpreter, including required packages, into an executable that can be run without a python installation.
+Finally, the app is bundled into an executable using [Nuitka](https://nuitka.net). Nuitka compiles the whole python interpreter, including required packages, into an app that can be run without an existing python installation.
+
+These tricks combine to make an app that behaves just as one would expect from a normal app, avoiding the myriad issues that are normally associated with shipping a python web app.

@@ -35,10 +35,9 @@ def start():
     webview.create_window('Dash', f'http://{host}:{port}')
     webview.start()
 
-    # Unreachable.
-    print("Web view stopped? Killing backend.")
+    # Reached when window is closed.
     p.terminate()
-    exit(1)
+    exit(0)
 
 
 if __name__ == '__main__':

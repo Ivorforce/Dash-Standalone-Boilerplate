@@ -44,3 +44,13 @@ git push --tags
 ```
 
 You will be able to download the artifacts of the build from the workflow page. I recommend publishing them locally on GitHub with the [Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) feature. Note that the macOS and Linux builds are not executable by default. Before uploading, make sure you `chmod +x path/to/executable` and re-zip the application.
+
+## Alternatives
+
+There are a few alternatives to using Nuitka to create binaries:
+- Some (like [PyApp](https://ofek.dev/pyapp/latest/), [pyinstaller](https://pyinstaller.org/en/stable/) and [PyOxidizer](https://pyoxidizer.readthedocs.io/en/stable/)), bundle an automated setup script. Actual python code is run on target machines, which reduces build times and may avoid some issues while introducing others. It will also require the target machine to set up itself.
+- [Cython](https://cython.org) has an [embedding option](https://github.com/cython/cython/wiki/EmbeddingCython) that allows it to create executables. Cython can gain considerable speed over Nuitka, but may be more work to get running.
+
+## In the Wild
+
+See how I'm using this template with a more advanced project in [ECG Viewer](https://github.com/Ivorforce/ECG-Viewer/tree/main).

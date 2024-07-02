@@ -11,10 +11,6 @@ First, [install poetry](https://python-poetry.org/docs/). Then:
 poetry install
 # test; you can skip this step
 poetry run python src/dnb/main.py
-# compile binary
-poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bundle --include-package=dash --include-package-data=dash --include-package=dash_core_components --include-package-data=dash_core_components --include-package=dash_html_components --include-package-data=dash_html_components --include-package=packaging --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package=dnb --include-package-data=dnb src/dnb/main.py
-# run binary
-./main.bin
 ```
 
 ## How does it work?
@@ -26,3 +22,23 @@ To make it a standalone app, a web view (through [pywebview](https://pywebview.f
 Finally, the app is bundled into an executable using [Nuitka](https://nuitka.net). Nuitka compiles the whole python interpreter, including required packages, into an app that can be run without an existing python installation.
 
 These tricks combine to make an app that behaves just as one would expect from a normal app, avoiding the myriad issues that are normally associated with shipping a python web app.
+
+## Building and shipping the app
+
+It is possible to build the app for the prevailing operating system using the following code:
+
+```
+# compile binary
+poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bundle --include-package=dash --include-package-data=dash --include-package=dash_core_components --include-package-data=dash_core_components --include-package=dash_html_components --include-package-data=dash_html_components --include-package=packaging --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package=dnb --include-package-data=dnb src/dnb/main.py
+# run binary
+./main.bin
+```
+
+This repository also comes with a [github action](https://docs.github.com/en/actions) that builds it for macOS, Linux, and Windows. This action takes about 2 hours to execute, using about 360 of your [2000 free minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-action) offered by GitHub - so use it sparingly. To trigger it, tag a commit as release:
+
+```
+git tag release.0.1
+git push --tags
+```
+
+You will be able to download the artifacts of the build from the workflow page. I recommend publishing them locally on GitHub with the [Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) feature.

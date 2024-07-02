@@ -31,7 +31,7 @@ It is possible to build the app for the prevailing operating system using the fo
 
 ```
 # compile binary
-poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bundle --include-package=dash --include-package-data=dash --include-package=dash_core_components --include-package-data=dash_core_components --include-package=dash_html_components --include-package-data=dash_html_components --include-package=packaging --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package=dnb --include-package-data=dnb src/dnb/main.py
+poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bundle --include-package-data=dash --include-package-data=dash_core_components --include-package-data=dash_html_components --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package-data=dnb src/dnb/main.py
 # run binary
 ./main.bin
 ```

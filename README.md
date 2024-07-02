@@ -1,6 +1,6 @@
 # Dash Standalone Boilerplate
 
-This package is a template for [Dash](https://dash.plotly.com) (and generally [Flask](https://flask.palletsprojects.com/en/3.0.x/)) based Python web programs that want to be an app rather than a local website.
+This package is a template for [Dash](https://dash.plotly.com) (and generally [Flask](https://flask.palletsprojects.com/en/3.0.x/)) based Python web programs that want to be a standalone desktop app rather than a local website.
 
 ![screenshot](./docs/screenshot.png)
 

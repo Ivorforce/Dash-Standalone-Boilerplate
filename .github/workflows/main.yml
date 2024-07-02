@@ -72,7 +72,7 @@ jobs:
       - name: Build Executable
         run: |
           source $VENV
-          python -m nuitka --output-dir=build --assume-yes-for-downloads --onefile --macos-create-app-bundle --include-package=dash --include-package-data=dash --include-package=dash_core_components --include-package-data=dash_core_components --include-package=dash_html_components --include-package-data=dash_html_components --include-package=packaging --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package=ecgviewer --include-package-data=ecgviewer src/ecgviewer/main.py
+          python -m nuitka --output-dir=build --assume-yes-for-downloads --onefile --macos-create-app-bundle --include-package=dash --include-package-data=dash --include-package=dash_core_components --include-package-data=dash_core_components --include-package=dash_html_components --include-package-data=dash_html_components --include-package=packaging --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package=dnb --include-package-data=dnb src/dnb/main.py
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3

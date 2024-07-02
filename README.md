@@ -41,4 +41,4 @@ git tag release.0.1
 git push --tags
 ```
 
-You will be able to download the artifacts of the build from the workflow page. I recommend publishing them locally on GitHub with the [Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) feature.
+You will be able to download the artifacts of the build from the workflow page. I recommend publishing them locally on GitHub with the [Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) feature. Note that the macOS and Linux builds are not executable by default. Before uploading, make sure you `chmod +x path/to/executable` and re-zip the application.

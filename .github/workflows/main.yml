@@ -31,48 +31,27 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip' # caching pip dependencies
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+      # Install using pip / poetry-core backend via PEP 517
+      - run: pip install .
+
+      - uses: Nuitka/Nuitka-Action@main
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-
-      - name: Load cached venv
-        id: cached-pip-wheels
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
-
-      - name: Install dependencies
-        run: poetry install --no-interaction --no-root
-      - name: Install library
-        run: poetry install --no-interaction
-
-      # Modified rom https://github.com/Nuitka/Nuitka-Action/blob/main/action.yml
-      #  We cannot use that github action in full because it assumes a lot that isn't true (e.g. PYTHON_VERSION not set,
-      #  requirements.txt used, etc.).
-      - name: Install ccache
-        # TODO: Proper "in" test could make sense here.
-        if: ${{ runner.os == 'Linux' }}
-        shell: bash
-        run: |
-          sudo apt-get install -y ccache
-      - name: Cache Nuitka cache directory
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.NUITKA_CACHE_DIR }}
-          key: ${{ runner.os }}-python-${{ env.PYTHON_VERSION }}-nuitka-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-python-${{ env.PYTHON_VERSION }}-
-            ${{ runner.os }}-python-
-            ${{ runner.os }}-
-
-      - name: Build Executable
-        run: |
-          source $VENV
-          python -m nuitka --output-dir=build --assume-yes-for-downloads --onefile --macos-create-app-bundle --include-package-data=dash --include-package-data=dash_core_components --include-package-data=dash_html_components --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package-data=dnb src/dnb/main.py
+          nuitka-version: main
+          script-name: src/dnb/main.py
+          onefile: true
+          macos-create-app-bundle: true
+          include-package-data: |
+            plotly
+            dnb
+            dash
+            dash_core_components
+            dash_html_components
+            packaging
+            plotly
+          include-package: |
+            plotly
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4

@@ -12,10 +12,12 @@ packages = [
 python = "~3.9"
 dash = "^2.17.1"
 pandas = "^2.2.2"
-nuitka = "^2.3.9"
+nuitka = {version="^2.3.9", optional=true}
 pywebview = "^5.1"
 setproctitle = "^1.3.3"
 
+[tool.poetry.extras]
+nuitka = ["nuitka"]
 
 [build-system]
 requires = ["poetry-core"]

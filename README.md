@@ -11,7 +11,7 @@ First, [install poetry](https://python-poetry.org/docs/). Then:
 ```bash
 # set up project
 poetry install
-# test; you can skip this step
+# run the project
 poetry run python src/dnb/main.py
 ```
 
@@ -30,6 +30,8 @@ These tricks combine to make an app that behaves just as one would expect from a
 It is possible to build the app for the prevailing operating system using the following code:
 
 ```
+# You need to install with nuitka
+poetry install -E nuitka
 # compile binary
 poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bundle --include-package-data=dash --include-package-data=dash_core_components --include-package-data=dash_html_components --include-package-data=packaging --include-package=plotly --include-package-data=plotly --include-package-data=dnb src/dnb/main.py
 # run binary

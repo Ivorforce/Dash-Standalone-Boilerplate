@@ -43,7 +43,6 @@ jobs:
           onefile: true
           macos-create-app-bundle: true
           include-package-data: |
-            plotly
             dnb
             dash
             dash_core_components

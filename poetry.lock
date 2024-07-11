@@ -466,7 +466,7 @@ files = [
 name = "nuitka"
 version = "2.3.10"
 description = "Python compiler with full language support and CPython compatibility"
-optional = false
+optional = true
 python-versions = "*"
 files = [
     {file = "Nuitka-2.3.10.tar.gz", hash = "sha256:32904f72d8a1c219a9288d1d958f10d9da1361aab32ed8863346e617e707ef93"},
@@ -534,7 +534,7 @@ files = [
 name = "ordered-set"
 version = "4.1.0"
 description = "An OrderedSet is a custom MutableSet that remembers its order, so that every"
-optional = false
+optional = true
 python-versions = ">=3.7"
 files = [
     {file = "ordered-set-4.1.0.tar.gz", hash = "sha256:694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"},
@@ -1073,7 +1073,7 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 name = "zstandard"
 version = "0.22.0"
 description = "Zstandard bindings for Python"
-optional = false
+optional = true
 python-versions = ">=3.8"
 files = [
     {file = "zstandard-0.22.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:275df437ab03f8c033b8a2c181e51716c32d831082d93ce48002a5227ec93019"},
@@ -1130,7 +1130,10 @@ cffi = {version = ">=1.11", markers = "platform_python_implementation == \"PyPy\
 [package.extras]
 cffi = ["cffi (>=1.11)"]
 
+[extras]
+nuitka = ["nuitka"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.9"
-content-hash = "228247c2cb1ccdfe2fddd0dd2997aa647e235270164fa0abc3025a64803fd201"
+content-hash = "2e444df41919628892278e20ccaa76266d732e29091837d904148e5531931e7e"

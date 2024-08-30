@@ -37,7 +37,7 @@ These tricks combine to make an app that behaves just as one would expect from a
 
 It is possible to build the app for the current operating system using the following code:
 
-```
+```bash
 # You need to install with nuitka
 poetry install -E nuitka
 # compile binary
@@ -48,7 +48,7 @@ poetry run python -m nuitka --output-dir=build --onefile --macos-create-app-bund
 
 This repository also comes with a [github action](https://docs.github.com/en/actions) that builds it for macOS, Linux, and Windows. This action takes about 2 hours to execute, using about 360 of your [2000 free minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-action) offered by GitHub - so use it sparingly. To trigger it, tag a commit as release:
 
-```
+```bash
 git tag release.0.1
 git push --tags
 ```

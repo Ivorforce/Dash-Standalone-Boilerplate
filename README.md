@@ -6,7 +6,15 @@ This package is a template for [Dash](https://dash.plotly.com) (and generally [F
 
 ## Setup
 
-First, [install poetry](https://python-poetry.org/docs/). Then:
+You can install the project with pip:
+```bash
+# set up project
+pip install .
+# run the project
+python src/dnb/main.py
+```
+
+Alternatively, you can use poetry. For that, first [install poetry](https://python-poetry.org/docs/). Then:
 
 ```bash
 # set up project
@@ -27,7 +35,7 @@ These tricks combine to make an app that behaves just as one would expect from a
 
 ## Building and shipping the app
 
-It is possible to build the app for the prevailing operating system using the following code:
+It is possible to build the app for the current operating system using the following code:
 
 ```
 # You need to install with nuitka

@@ -10,7 +10,7 @@ You can install the project with pip:
 ```bash
 # set up project
 pip install .
-# run the project
+# run the app without compiling
 python src/dnb/main.py
 ```
 
@@ -19,7 +19,7 @@ Alternatively, you can use poetry. For that, first [install poetry](https://pyth
 ```bash
 # set up project
 poetry install
-# run the project
+# run the app without compiling
 poetry run python src/dnb/main.py
 ```
 
